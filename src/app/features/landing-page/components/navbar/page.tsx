@@ -14,7 +14,7 @@ function Navbar() {
                     <div>
                         <ul className="flex gap-7 ">
                             <Link href="/"><li className="text-xl font-bold">Home</li></Link>
-                            <Link href="#products"><li className="text-xl font-bold">Products</li></Link>
+                            <Link href="/products"><li className="text-xl font-bold">Products</li></Link>
                             <Link href="#about"><li className="text-xl font-bold">About</li></Link>
                             <Link href="#why-us"><li className="text-xl font-bold">Why Us</li></Link>
                             <Link href="#contact"><li className="text-xl font-bold">Contact</li></Link>
