@@ -4,7 +4,7 @@ import ProductPreview from "./features/landing-page/components/products/ProductP
 import About from "./features/landing-page/components/about/page"
 import WhyUs from "./features/landing-page/components/why-us/page"
 import Footer from "./features/landing-page/components/footer/page"
-
+import ContactForm from "./features/landing-page/components/contact/page"
 
 export default function Home() {
   return (
@@ -14,7 +14,8 @@ export default function Home() {
       <ProductPreview />
       <About />
       <WhyUs />
-      <Footer/>
+      <ContactForm />
+      <Footer />
     </>
   );
 }
