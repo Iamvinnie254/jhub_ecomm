@@ -7,8 +7,8 @@ function ProductPreview() {
 
     const featured = products.filter((p) => p.featured).slice(0, 6)
     return (
-        <div className="bg-white text-black w-full ">
-            <div className="max-w-7xl mx-auto">
+        <div id="products" className="bg-white text-black w-full ">
+            <div className="max-w-7xl mx-auto pt-10">
                 <div className="flex flex-col items-center justify-center py-10 gap-3">
                     <h1 className="text-4xl font-bold capitalize ">Featured <span className="text-green-500">Products</span></h1>
                     <p>Discover the best products we have to offer</p>

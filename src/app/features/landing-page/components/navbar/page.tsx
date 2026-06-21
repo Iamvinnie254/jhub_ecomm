@@ -5,8 +5,8 @@ import MobileNav from "./mobileNav"
 
 function Navbar() {
     return (
-        <>
-            <div className=" w-full text-white px-3 py-5 mx-auto bg-black font-serif top-0 sticky z-100 hidden md:block ">
+        <nav id="navbar" className="top-0 sticky z-100">
+            <div className=" w-full text-white px-3 py-5 mx-auto bg-black font-serif hidden md:block ">
                 <div className="flex items-center justify-between max-w-7xl mx-auto">
                     <div>
                         <Link href="/"><h1 className="text-4xl font-bold">F<span className="text-green-500">oo</span>dy</h1></Link>
@@ -14,7 +14,7 @@ function Navbar() {
                     <div>
                         <ul className="flex gap-7 ">
                             <Link href="/"><li className="text-xl font-bold">Home</li></Link>
-                            <Link href="/products"><li className="text-xl font-bold">Products</li></Link>
+                            <Link href="#products"><li className="text-xl font-bold">Products</li></Link>
                             <Link href="#about"><li className="text-xl font-bold">About</li></Link>
                             <Link href="#why-us"><li className="text-xl font-bold">Why Us</li></Link>
                             <Link href="#contact"><li className="text-xl font-bold">Contact</li></Link>
@@ -31,7 +31,7 @@ function Navbar() {
                 </div>
             </div>
             <MobileNav />
-        </>
+        </nav>
     )
 }
 
