@@ -3,7 +3,7 @@ import Groceries from "../../../../../../public/images/hero_groceries.png"
 
 function Hero() {
     return (
-        <div className="bg-green-900/50 md:h-[70vh] h-[80vh] items-center ">
+        <div id="hero" className="bg-green-900/50 md:h-[70vh] h-[80vh] items-center ">
             <div className=" flex flex-col md:flex-row items-center max-w-7xl mx-auto md:pt-24 p-6">
                 <div className="md:gap-10 gap-6 flex flex-col h-full ">
                     <h2 className="capitalize font-bold text-3xl md:text-5xl ">Go organic and indulge in a healthier life</h2>
