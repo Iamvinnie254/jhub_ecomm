@@ -4,7 +4,7 @@ import { products } from "../../../../../../data/products"
 
 function AllProducts() {
     return (
-        <div className="bg-white text-black w-full ">
+        <div className="bg-white text-black w-full p-6 ">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col items-center justify-center py-10 gap-3">
                     <h1 className="text-4xl font-bold capitalize ">Our Full <span className="text-green-500">Products</span> Catalogue</h1>
