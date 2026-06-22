@@ -1,6 +1,6 @@
 'use client'
 import ProductCard from "./ProductCard"
-import { products } from "../../../../../../data/products"
+import { products } from "../../../../../data/products"
 
 function AllProducts() {
     return (
