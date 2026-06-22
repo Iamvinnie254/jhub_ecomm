@@ -1,12 +1,11 @@
 function ProductPage({
-    params
-
+  params,
 }: {
-    params: {
-        id: string
-    }
+  params: {
+    id: string;
+  };
 }) {
-    return <h1>Product ID: {params.id}</h1>
+  return <h1>Product ID: {params.id}</h1>;
 }
 
-export default ProductPage
+export default ProductPage;
