@@ -1,20 +1,19 @@
-'use client'
+"use client";
 
-import { useEffect } from "react"
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function AOSInit() {
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            easing: "ease-in-out",
-            once: false
-        });
-    }, [])
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false,
+    });
+  }, []);
 
-    return null;
-
+  return null;
 }
 
 export default AOSInit;

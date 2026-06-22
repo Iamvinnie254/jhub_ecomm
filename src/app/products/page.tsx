@@ -1,13 +1,11 @@
 import AllProducts from "@/features/landing-page/components/products/AllProducts";
 
 function ProductsPage() {
-    return (
-        <>
-
-            <AllProducts />
-
-        </>
-    )
+  return (
+    <>
+      <AllProducts />
+    </>
+  );
 }
 
-export default ProductsPage
+export default ProductsPage;
