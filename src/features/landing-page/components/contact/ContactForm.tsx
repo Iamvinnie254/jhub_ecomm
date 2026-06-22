@@ -3,7 +3,7 @@ import { FaPhoneAlt, FaEnvelope, FaWhatsapp, FaInstagram, FaFacebookF, FaTwitter
 
 function ContactForm() {
     return (
-        <div id="contact" className="py-24 px-6">
+        <div id="contact" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="200" className="py-24 px-6">
             <div className="max-w-7xl mx-auto">
 
                 {/* Heading */}

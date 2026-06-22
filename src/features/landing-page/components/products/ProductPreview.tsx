@@ -1,6 +1,6 @@
 'use client'
 import ProductCard from "./ProductCard"
-import { products } from "../../../../../../data/products"
+import { products } from "../../../../../data/products"
 import Link from "next/link"
 
 function ProductPreview() {
@@ -9,11 +9,11 @@ function ProductPreview() {
     return (
         <div id="products" className="bg-white text-black w-full ">
             <div className="max-w-7xl mx-auto pt-10">
-                <div className="flex flex-col items-center justify-center py-10 gap-3">
+                <div data-aos="fade-down" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="100" className="flex flex-col items-center justify-center py-10 gap-3">
                     <h1 className="text-4xl font-bold capitalize ">Featured <span className="text-green-500">Products</span></h1>
                     <p>Discover the best products we have to offer</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="200" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {
                         featured.map((product) => (
                             <div key={product.id}>

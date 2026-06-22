@@ -34,7 +34,7 @@ function WhyUs() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
                     {
                         features.map((item, index) => (
-                            <div key={index} className="group hover:shadow-xl rounded-lg p-5 md:m-3 cursor-pointer bg-green-500 transition-all duration-300">
+                            <div data-aos="fade-up" data-aos-delay={100 + index * 100} data-aos-duration="1000" data-aos-easing="ease-in-out" key={index} className="group hover:shadow-xl rounded-lg p-5 md:m-3 cursor-pointer bg-green-900/60 transition-all duration-300">
                                 <div className="mb-6 text-black transition-transform duration-300group-hover:scale-110">
                                     {item.icon}
                                 </div>
