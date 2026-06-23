@@ -1,8 +1,11 @@
 "use client";
+import useCalculator from "@/utils";
 import { useState } from "react";
 
-function CalculatorPage() {
+const CalculatorPage = () => {
   const [display, setDisplay] = useState("0");
+
+ // const { sum } = useCalculator();
 
   const appendValue = (value: string) => {
     if (display == "0") {
@@ -33,6 +36,8 @@ function CalculatorPage() {
       setDisplay("Error");
     }
   };
+
+  //const { square } = useCalculator();
 
   const square = () => {
     try {
@@ -97,20 +102,20 @@ function CalculatorPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 p-6">
       <div className="w-full max-w-md bg-gray-800 rounded-3xl shadow-2xl p-6 border-4 border-gray-700">
-        {/* Casio Branding */}
+        {/* Calc header*/}
         <div className="mb-4">
           <h1 className="text-white text-xl font-bold">CASIO fx-82MS</h1>
-          <p className="text-gray-400 text-sm">Scientific Calculator</p>
+          <p className="text-gray-400 text-sm">Calculator</p>
         </div>
 
-        {/* Display */}
+        {/* screen*/}
         <div className="bg-green-100 border-4 border-gray-500 rounded-lg p-4 mb-6">
           <div className="text-right text-3xl font-mono break-all text-black min-h-[50px]">
             {display}
           </div>
         </div>
 
-        {/* Buttons */}
+        {/* calc buttons */}
         <div className="grid grid-cols-4 gap-3">
           <Button
             label="AC"
@@ -266,6 +271,6 @@ function CalculatorPage() {
       </div>
     </div>
   );
-}
+};
 
 export default CalculatorPage;
