@@ -3,31 +3,33 @@
 import { useState, useMemo } from "react";
 import ProductCard from "./ProductCard";
 import { products, getNumericPrice } from "../../../../../data/products";
-import { FaSearch, FaFilter, FaTimes, FaUndo, FaSlidersH } from "react-icons/fa";
+import {
+  FaSearch,
+  FaFilter,
+  FaTimes,
+  FaUndo,
+  FaSlidersH,
+} from "react-icons/fa";
 
 function AllProducts() {
-  // Filter States
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [maxPrice, setMaxPrice] = useState(200); // Max product price is KSh 150
+  const [maxPrice, setMaxPrice] = useState(200);
   const [sortBy, setSortBy] = useState("default");
   const [showMobileFilters, setShowMobileFilters] = useState(false);
 
-  // Dynamically extract categories
   const categories = useMemo(() => {
     return Array.from(new Set(products.map((p) => p.category)));
   }, []);
 
-  // Category toggle handler
   const handleCategoryToggle = (category: string) => {
     setSelectedCategories((prev) =>
       prev.includes(category)
         ? prev.filter((c) => c !== category)
-        : [...prev, category]
+        : [...prev, category],
     );
   };
 
-  // Reset all filters
   const handleResetFilters = () => {
     setSearchQuery("");
     setSelectedCategories([]);
@@ -35,33 +37,32 @@ function AllProducts() {
     setSortBy("default");
   };
 
-  // Filtered & Sorted products logic
   const processedProducts = useMemo(() => {
     let result = [...products];
 
-    // 1. Search Query Filter
     if (searchQuery.trim() !== "") {
       const query = searchQuery.toLowerCase();
       result = result.filter(
         (p) =>
           p.name.toLowerCase().includes(query) ||
-          p.description.toLowerCase().includes(query)
+          p.description.toLowerCase().includes(query),
       );
     }
 
-    // 2. Category Filter
     if (selectedCategories.length > 0) {
       result = result.filter((p) => selectedCategories.includes(p.category));
     }
 
-    // 3. Price Filter
     result = result.filter((p) => getNumericPrice(p.price) <= maxPrice);
 
-    // 4. Sorting
     if (sortBy === "price-low-high") {
-      result.sort((a, b) => getNumericPrice(a.price) - getNumericPrice(b.price));
+      result.sort(
+        (a, b) => getNumericPrice(a.price) - getNumericPrice(b.price),
+      );
     } else if (sortBy === "price-high-low") {
-      result.sort((a, b) => getNumericPrice(b.price) - getNumericPrice(a.price));
+      result.sort(
+        (a, b) => getNumericPrice(b.price) - getNumericPrice(a.price),
+      );
     } else if (sortBy === "name-a-z") {
       result.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortBy === "name-z-a") {
@@ -71,12 +72,12 @@ function AllProducts() {
     return result;
   }, [searchQuery, selectedCategories, maxPrice, sortBy]);
 
-  // Sidebar Filter Contents component to avoid repetition
   const FilterContent = () => (
     <div className="flex flex-col gap-6">
-      {/* Search Aspect (if inside sidebar) */}
       <div className="hidden md:block">
-        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Search Products</h3>
+        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">
+          Search Products
+        </h3>
         <div className="relative">
           <input
             type="text"
@@ -89,9 +90,10 @@ function AllProducts() {
         </div>
       </div>
 
-      {/* Category Selection */}
       <div>
-        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Categories</h3>
+        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">
+          Categories
+        </h3>
         <div className="flex flex-col gap-2.5">
           {categories.map((category) => {
             const isChecked = selectedCategories.includes(category);
@@ -106,18 +108,25 @@ function AllProducts() {
                   onChange={() => handleCategoryToggle(category)}
                   className="w-4 h-4 rounded text-green-600 border-gray-300 focus:ring-green-500 cursor-pointer accent-green-600"
                 />
-                <span className={isChecked ? "font-semibold text-green-600" : ""}>{category}</span>
+                <span
+                  className={isChecked ? "font-semibold text-green-600" : ""}
+                >
+                  {category}
+                </span>
               </label>
             );
           })}
         </div>
       </div>
 
-      {/* Price Slider */}
       <div>
         <div className="flex justify-between items-center mb-3">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900">Max Price</h3>
-          <span className="text-sm font-bold text-green-600">KSh {maxPrice}</span>
+          <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900">
+            Max Price
+          </h3>
+          <span className="text-sm font-bold text-green-600">
+            KSh {maxPrice}
+          </span>
         </div>
         <input
           type="range"
@@ -134,9 +143,10 @@ function AllProducts() {
         </div>
       </div>
 
-      {/* Sorting */}
       <div>
-        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Sort By</h3>
+        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">
+          Sort By
+        </h3>
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
@@ -150,7 +160,6 @@ function AllProducts() {
         </select>
       </div>
 
-      {/* Reset Button */}
       <button
         onClick={handleResetFilters}
         className="w-full border border-red-200 hover:border-red-500 text-red-500 hover:text-red-600 font-bold py-2.5 rounded-lg text-sm flex items-center justify-center gap-2 cursor-pointer bg-red-50/20 hover:bg-red-50/50 transition-colors"
@@ -163,18 +172,16 @@ function AllProducts() {
   return (
     <div className="bg-white text-black w-full min-h-screen py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        
-        {/* Catalog Header */}
         <div className="flex flex-col items-center justify-center py-6 gap-3 mb-10 text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold font-serif capitalize">
             Our Full <span className="text-green-500">Products</span> Catalogue
           </h1>
           <p className="text-gray-550 text-base max-w-lg">
-            Discover the best organic products, freshly harvested and delivered directly to your doorstep.
+            Discover the best organic products, freshly harvested and delivered
+            directly to your doorstep.
           </p>
         </div>
 
-        {/* Mobile Search and Filter Button Row */}
         <div className="flex md:hidden gap-3 mb-6 items-center">
           <div className="relative flex-1">
             <input
@@ -195,15 +202,11 @@ function AllProducts() {
           </button>
         </div>
 
-        {/* 2-Column Catalog Layout */}
         <div className="flex flex-col md:flex-row gap-8 items-start">
-          
-          {/* Desktop Filter Sidebar */}
           <aside className="hidden md:block w-64 lg:w-72 bg-white border border-gray-100 rounded-2xl p-6 shadow-sm sticky top-28">
             <FilterContent />
           </aside>
 
-          {/* Catalog Grid Area */}
           <div className="flex-1 w-full">
             {processedProducts.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -214,14 +217,16 @@ function AllProducts() {
                 ))}
               </div>
             ) : (
-              // Empty State
               <div className="flex flex-col items-center justify-center py-20 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200 p-6">
                 <div className="bg-red-50 text-red-500 p-4 rounded-full mb-4">
                   <FaSlidersH size={28} />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">No products match your filters</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-1">
+                  No products match your filters
+                </h3>
                 <p className="text-gray-500 text-sm mb-6 max-w-sm">
-                  Try adjusting your search criteria, raising your price ceiling, or selecting different categories.
+                  Try adjusting your search criteria, raising your price
+                  ceiling, or selecting different categories.
                 </p>
                 <button
                   onClick={handleResetFilters}
@@ -233,19 +238,15 @@ function AllProducts() {
             )}
           </div>
         </div>
-
       </div>
 
-      {/* Mobile Drawer Slide-over */}
       {showMobileFilters && (
         <div className="fixed inset-0 z-110 flex md:hidden">
-          {/* Backdrop overlay */}
           <div
             className="fixed inset-0 bg-black/50 transition-opacity"
             onClick={() => setShowMobileFilters(false)}
           />
-          
-          {/* Content container */}
+
           <div className="relative flex w-full max-w-xs flex-col bg-white py-6 px-5 shadow-xl transition-all duration-300 ml-auto h-full overflow-y-auto">
             <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-6">
               <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
@@ -259,7 +260,7 @@ function AllProducts() {
                 <FaTimes size={18} />
               </button>
             </div>
-            
+
             <FilterContent />
           </div>
         </div>
