@@ -18,19 +18,29 @@ function Navbar() {
           <div>
             <ul className="flex gap-7 ">
               <Link href="/">
-                <li className="text-xl font-bold">Home</li>
+                <li className="text-xl font-bold transition duration-300 hover:text-green-500">
+                  Home
+                </li>
               </Link>
               <Link href="#products">
-                <li className="text-xl font-bold">Products</li>
+                <li className="text-xl font-bold transition duration-300 hover:text-green-500">
+                  Products
+                </li>
               </Link>
               <Link href="#about">
-                <li className="text-xl font-bold">About</li>
+                <li className="text-xl font-bold transition duration-300 hover:text-green-500">
+                  About
+                </li>
               </Link>
               <Link href="#why-us">
-                <li className="text-xl font-bold">Why Us</li>
+                <li className="text-xl font-bold transition duration-300 hover:text-green-500">
+                  Why Us
+                </li>
               </Link>
               <Link href="#contact">
-                <li className="text-xl font-bold">Contact</li>
+                <li className="text-xl font-bold transition duration-300 hover:text-green-500">
+                  Contact
+                </li>
               </Link>
             </ul>
           </div>

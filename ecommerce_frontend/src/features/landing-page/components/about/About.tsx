@@ -1,3 +1,4 @@
+import Link from "next/link";
 import AboutImg from "../../../../../public/images/about_us.png";
 
 function About() {
@@ -25,8 +26,15 @@ function About() {
         <p className=" text-lg text-gray-800 leading-relaxed">
           Today, we have a wide range of products to choose from, including
           fresh organic groceries and cereals. We are committed to providing our
-          customers with the best possible products and services.{" "}
+          customers with the best possible products and services....
         </p>
+        <span className="mt-6 block">
+          <Link href="/about-us" className="cursor-pointer">
+            <button className="bg-green-700 hover:bg-green-600 transition-all duration-300 text-white px-4 py-2 rounded-md cursor-pointer">
+              Read More
+            </button>
+          </Link>
+        </span>
       </div>
       <div
         data-aos="fade-left"
