@@ -1,9 +1,9 @@
 import AboutImg from "../../../../../public/images/about_us.png";
 
 const team = [
-  { name: "John Doe", role: "Founder & CEO" },
-  { name: "Jane Smith", role: "Marketing Manager" },
-  { name: "Mark Wilson", role: "Sales Manager" },
+  { name: "John Kamau", role: "Founder & CEO" },
+  { name: "Jane Kasyoka", role: "Marketing Manager" },
+  { name: "Mark Lagat", role: "Sales Manager" },
 ];
 
 const milestones = [
@@ -43,7 +43,7 @@ export default function AboutUsPage() {
 
         <div
           className="md:w-1/2"
-          data-aos="fade-left"
+          data-aos="fade-out"
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
           data-aos-delay="200"
@@ -57,15 +57,11 @@ export default function AboutUsPage() {
       </section>
 
       {/* What We Do */}
-      <section
-        className="px-6 md:px-10 py-10"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
+      <section className="px-6 md:px-10 py-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">What We Do</h2>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
+          <div>
             <h3 className="text-xl font-semibold mb-3 text-green-500">
               Our Services
             </h3>
@@ -75,7 +71,7 @@ export default function AboutUsPage() {
             </p>
           </div>
 
-          <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+          <div>
             <h3 className="text-xl font-semibold mb-3 text-green-500">
               Where We Operate
             </h3>
@@ -85,7 +81,7 @@ export default function AboutUsPage() {
             </p>
           </div>
 
-          <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
+          <div>
             <h3 className="text-xl font-semibold mb-3 text-green-500">
               Why Choose Us
             </h3>
@@ -100,11 +96,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* Leadership */}
-      <section
-        className="px-6 md:px-10 py-10 bg-gray-50 rounded-xl"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
+      <section className="px-6 md:px-10 py-10 bg-gray-50 rounded-xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-8">Meet Our Team</h2>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -112,9 +104,6 @@ export default function AboutUsPage() {
             <div
               key={member.name}
               className="border rounded-xl p-6 bg-white hover:shadow-md transition"
-              data-aos="flip-left"
-              data-aos-duration="900"
-              data-aos-delay={index * 150}
             >
               <div className="w-20 h-20 rounded-full bg-green-100 mb-4" />
 
@@ -132,38 +121,21 @@ export default function AboutUsPage() {
       </section>
 
       {/* Timeline */}
-      <section
-        className="px-6 md:px-10 py-12"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
+      <section className="px-6 md:px-10 py-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Journey</h2>
 
         <div className="border-l-4 border-green-500 pl-6 space-y-6">
           {milestones.map((item, index) => (
-            <div
-              key={item}
-              data-aos="fade-right"
-              data-aos-duration="800"
-              data-aos-delay={index * 200}
-            >
+            <div key={item}>
               <p className="text-lg text-gray-700">{item}</p>
             </div>
           ))}
         </div>
 
         {/* CTA & Newsletter */}
-        <div
-          className="px-6 md:px-10 py-16"
-          data-aos="zoom-in-up"
-          data-aos-duration="1000"
-        >
+        <div className="px-6 md:px-10 py-16">
           <div className="bg-green-50 rounded-2xl p-8 md:p-12 text-center">
-            <h2
-              className="text-3xl md:text-4xl font-bold"
-              data-aos="fade-down"
-              data-aos-delay="100"
-            >
+            <h2 className="text-3xl md:text-4xl font-bold">
               Join the <span className="text-green-500">Foody</span> Community
             </h2>
 
@@ -175,11 +147,7 @@ export default function AboutUsPage() {
             </p>
 
             {/* Call to Action */}
-            <div
-              className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
-              data-aos="fade-up"
-              data-aos-delay="250"
-            >
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
               <button className="bg-green-700 hover:bg-green-600 text-white px-8 py-3 rounded-md transition-all duration-300">
                 Shop Now
               </button>
@@ -190,11 +158,7 @@ export default function AboutUsPage() {
             </div>
 
             {/* Newsletter */}
-            <div
-              className="mt-12 max-w-2xl mx-auto"
-              data-aos="fade-up"
-              data-aos-delay="450"
-            >
+            <div className="mt-12 max-w-2xl mx-auto">
               <h3 className="text-2xl font-semibold mb-3">
                 Subscribe to Our Newsletter
               </h3>
@@ -204,11 +168,7 @@ export default function AboutUsPage() {
                 healthy recipes, and company updates.
               </p>
 
-              <form
-                className="flex flex-col sm:flex-row gap-3"
-                data-aos="fade-up"
-                data-aos-delay="600"
-              >
+              <form className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="email"
                   placeholder="Enter your email address"
